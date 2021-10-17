@@ -41,11 +41,22 @@ public class Users {
 	@Column(name = "phone")
 	private String phone;
 	
+	
+
+	/*
+	 * @ManyToMany(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinTable(name = )
+	 * 
+	 * @JoinTable(name = "auth_user_role", joinColumns = {@JoinColumn(name =
+	 * "auth_user_id")}, inverseJoinColumns = {@JoinColumn(name =
+	 * "auth_role_id")} ) private Set<Roles> roles;
+	 */
 
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
 	Set<Registration> registrations = new HashSet<>();
-	
+
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
 	Set<Comment> comments = new HashSet<>();

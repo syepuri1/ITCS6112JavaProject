@@ -1,13 +1,25 @@
 package com.event.management.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.event.management.dao.UsersDao;
+import com.event.management.model.Users;
+import com.event.management.service.UsersService;
 
-@Component
-public class UsersServiceImpl {
+@Service
+public class UsersServiceImpl implements UsersService{
 
 	@Autowired
 	private UsersDao usersDao;
+
+	@Override
+	public Users register(Users user) {
+		return usersDao.register(user);
+	}
+	
+	@Override
+	public Users getUserDetails(String email) {
+		return usersDao.getUserByEmail(email);
+	}
 }
