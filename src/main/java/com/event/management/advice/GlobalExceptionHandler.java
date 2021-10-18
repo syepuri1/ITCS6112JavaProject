@@ -14,7 +14,7 @@ public class GlobalExceptionHandler{
 	}
 	
 	@ExceptionHandler(value=EventManagementException.class)
-	public ResponseEntity<String> handleUserAlreadyExist(EventManagementException invalid) {
+	public ResponseEntity<String> handleEventManagementException(EventManagementException invalid) {
 		return new ResponseEntity<String>(invalid.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 	

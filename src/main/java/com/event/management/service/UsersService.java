@@ -8,4 +8,6 @@ public interface UsersService {
 
 	Users getUserDetails(String email);
 
+	String updatePassword(String email, String password);
+
 }
