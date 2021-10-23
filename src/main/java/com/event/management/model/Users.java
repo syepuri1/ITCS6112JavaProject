@@ -29,29 +29,12 @@ public class Users {
 	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name = "age")
-	private int age;
-
 	@Column(name = "password", nullable = false)
 	private String password;
 
 	@Column(name = "email", nullable = false)
 	private String email;
 
-	@Column(name = "phone")
-	private String phone;
-	
-	
-
-	/*
-	 * @ManyToMany(cascade = CascadeType.ALL)
-	 * 
-	 * @JoinTable(name = )
-	 * 
-	 * @JoinTable(name = "auth_user_role", joinColumns = {@JoinColumn(name =
-	 * "auth_user_id")}, inverseJoinColumns = {@JoinColumn(name =
-	 * "auth_role_id")} ) private Set<Roles> roles;
-	 */
 
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
@@ -85,14 +68,6 @@ public class Users {
 		this.lastName = lastName;
 	}
 
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -107,14 +82,6 @@ public class Users {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
 	}
 
 	public void setComments(Set<Comment> comments) {

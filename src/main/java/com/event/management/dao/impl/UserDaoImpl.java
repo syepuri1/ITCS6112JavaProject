@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.event.management.advice.EventManagementException;
 import com.event.management.advice.InvalidInputException;
 import com.event.management.dao.UsersDao;
+import com.event.management.model.Login;
 import com.event.management.model.Users;
 import com.event.management.repository.UsersRepository;
 
@@ -29,6 +30,16 @@ public class UserDaoImpl implements UsersDao {
 	@Override
 	public Users getUserByEmail(String email) {
 		return repository.getUserByEmail(email);
+	}
+
+	@Override
+	public String login(Login credentials) {
+		Users existing = repository.getUserByEmail(credentials.getUsername());
+		if (existing == null)
+			throw new InvalidInputException("User does not exist. Please login with correct credentials");
+		if (!existing.getPassword().equals(credentials.getPassword()))
+			throw new InvalidInputException("Please enter the correct password");
+		return "Successfully Logged In";
 	}
 
 	@Override
