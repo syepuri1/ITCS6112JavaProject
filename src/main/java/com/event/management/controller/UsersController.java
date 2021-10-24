@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.event.management.advice.InvalidInputException;
+import com.event.management.model.Login;
 import com.event.management.model.Users;
 import com.event.management.service.UsersService;
 
@@ -44,6 +45,13 @@ public class UsersController {
 	@ApiOperation(value = "Getting User by email")
 	public ResponseEntity<Users> getUserDetails(String email) {
 		return new ResponseEntity<Users>(usersService.getUserDetails(email), HttpStatus.ACCEPTED);
+	}
+
+	@PostMapping("/login")
+	@ApiOperation(value = "Login")
+	public ResponseEntity<String> login(@RequestBody Login loginCredentials) {
+		return new ResponseEntity<String>(usersService.login(loginCredentials), HttpStatus.ACCEPTED);
+
 	}
 
 	@PutMapping("/updatePassword")
