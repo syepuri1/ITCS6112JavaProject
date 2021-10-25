@@ -34,7 +34,7 @@ public class UserDaoImpl implements UsersDao {
 
 	@Override
 	public String login(Login credentials) {
-		Users existing = repository.getUserByEmail(credentials.getUsername());
+		Users existing = repository.getUserByEmail(credentials.getEmail());
 		if (existing == null)
 			throw new InvalidInputException("User does not exist. Please login with correct credentials");
 		if (!existing.getPassword().equals(credentials.getPassword()))

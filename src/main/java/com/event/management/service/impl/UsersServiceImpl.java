@@ -27,7 +27,7 @@ public class UsersServiceImpl implements UsersService{
 	
 	@Override
 	public String login(Login credentials) {
-		if(credentials == null || credentials.getUsername().isEmpty()|| credentials.getPassword().isEmpty())
+		if(credentials == null || credentials.getEmail().isEmpty()|| credentials.getPassword().isEmpty())
 			throw new InvalidInputException("Username or Password cannot be empty..!!");
 		return usersDao.login(credentials);
 	}
