@@ -27,7 +27,7 @@ public class Event {
 	private int eventId;
 
 	@Column(name = "event_name", nullable = false)
-	private String eventName;
+	private String name;
 
 	@Column(name = "description")
 	private String description;
@@ -36,10 +36,10 @@ public class Event {
 	private String hosts;
 
 	@Column(name = "event_start_time", nullable = false)
-	private LocalDateTime eventStartTime;
+	private LocalDateTime startTime;
 
 	@Column(name = "event_end_time", nullable = false)
-	private LocalDateTime eventEndTime;
+	private LocalDateTime endTime;
 
 	@Column(name = "capacity", nullable = false)
 	private int capactiy;
@@ -54,7 +54,7 @@ public class Event {
 	private int createdBy;
 
 	@Column(name = "contact_email")
-	private String eventPointOfCotactEmail;
+	private String pointOfCotactEmail;
 
 	@Column(name = "locaiton")
 	private String location;
@@ -96,11 +96,11 @@ public class Event {
 	}
 
 	public String getEventName() {
-		return eventName;
+		return name;
 	}
 
 	public void setEventName(String eventName) {
-		this.eventName = eventName;
+		this.name = eventName;
 	}
 
 	public String getDescription() {
@@ -120,19 +120,19 @@ public class Event {
 	}
 
 	public LocalDateTime getEventStartTime() {
-		return eventStartTime;
+		return startTime;
 	}
 
 	public void setEventStartTime(LocalDateTime eventStartTime) {
-		this.eventStartTime = eventStartTime;
+		this.startTime = eventStartTime;
 	}
 
 	public LocalDateTime getEventEndTime() {
-		return eventEndTime;
+		return endTime;
 	}
 
 	public void setEventEndTime(LocalDateTime eventEndTime) {
-		this.eventEndTime = eventEndTime;
+		this.endTime = eventEndTime;
 	}
 
 	public int getCapactiy() {
@@ -168,11 +168,11 @@ public class Event {
 	}
 
 	public String getEventPointOfCotactEmail() {
-		return eventPointOfCotactEmail;
+		return pointOfCotactEmail;
 	}
 
 	public void setEventPointOfCotactEmail(String eventPointOfCotactEmail) {
-		this.eventPointOfCotactEmail = eventPointOfCotactEmail;
+		this.pointOfCotactEmail = eventPointOfCotactEmail;
 	}
 
 	public String getLocation() {
