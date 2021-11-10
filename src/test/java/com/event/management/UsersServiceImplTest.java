@@ -11,8 +11,6 @@ import com.event.management.advice.InvalidInputException;
 import com.event.management.dao.UsersDao;
 import com.event.management.dao.impl.UserDaoImpl;
 import com.event.management.model.Users;
-import com.event.management.repository.UsersRepository;
-import com.event.management.service.UsersService;
 import com.event.management.service.impl.UsersServiceImpl;
 
 public class UsersServiceImplTest {
