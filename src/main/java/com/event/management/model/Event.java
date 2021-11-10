@@ -15,7 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity(name = "event")
 @Table(name = "event")
@@ -27,7 +31,7 @@ public class Event {
 	private int eventId;
 
 	@Column(name = "event_name", nullable = false)
-	private String eventName;
+	private String name;
 
 	@Column(name = "description")
 	private String description;
@@ -35,15 +39,16 @@ public class Event {
 	@Column(name = "hosts")
 	private String hosts;
 
-	@Column(name = "event_start_time", nullable = false)
-	private LocalDateTime eventStartTime;
+	@Column(name = "event_start_time", nullable = true)
+	private LocalDateTime startTime;
 
-	@Column(name = "event_end_time", nullable = false)
-	private LocalDateTime eventEndTime;
+	@Column(name = "event_end_time", nullable = true)
+	private LocalDateTime endTime;
 
 	@Column(name = "capacity", nullable = false)
 	private int capactiy;
 
+	//@ApiModelProperty()
 	@Column(name = "venue")
 	private String venue;
 
@@ -54,22 +59,22 @@ public class Event {
 	private int createdBy;
 
 	@Column(name = "contact_email")
-	private String eventPointOfCotactEmail;
+	private String pointOfCotactEmail;
 
 	@Column(name = "locaiton")
 	private String location;
 
-	@OneToOne
-	@JoinColumn(name = "category", referencedColumnName = "id")
-	private Category category;
+	/*@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "category", referencedColumnName = "id")*/
+	private String category;
 
 	@Column(name = "remaining_capacity", nullable = false)
 	private int remainingCapacity;
 
-	@Column(name = "created_on", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "created_on", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime createdOn;
 
-	@Column(name = "updated_on", nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "updated_on", columnDefinition="DATETIME DEFAULT CURRENT_TIMESTAMP")
 	private LocalDateTime updatedOn;
 
 	@JsonIgnore
@@ -96,11 +101,11 @@ public class Event {
 	}
 
 	public String getEventName() {
-		return eventName;
+		return name;
 	}
 
 	public void setEventName(String eventName) {
-		this.eventName = eventName;
+		this.name = eventName;
 	}
 
 	public String getDescription() {
@@ -120,19 +125,19 @@ public class Event {
 	}
 
 	public LocalDateTime getEventStartTime() {
-		return eventStartTime;
+		return startTime;
 	}
 
 	public void setEventStartTime(LocalDateTime eventStartTime) {
-		this.eventStartTime = eventStartTime;
+		this.startTime = eventStartTime;
 	}
 
 	public LocalDateTime getEventEndTime() {
-		return eventEndTime;
+		return endTime;
 	}
 
 	public void setEventEndTime(LocalDateTime eventEndTime) {
-		this.eventEndTime = eventEndTime;
+		this.endTime = eventEndTime;
 	}
 
 	public int getCapactiy() {
@@ -168,11 +173,11 @@ public class Event {
 	}
 
 	public String getEventPointOfCotactEmail() {
-		return eventPointOfCotactEmail;
+		return pointOfCotactEmail;
 	}
 
 	public void setEventPointOfCotactEmail(String eventPointOfCotactEmail) {
-		this.eventPointOfCotactEmail = eventPointOfCotactEmail;
+		this.pointOfCotactEmail = eventPointOfCotactEmail;
 	}
 
 	public String getLocation() {
@@ -207,7 +212,7 @@ public class Event {
 		this.updatedOn = updatedOn;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 
