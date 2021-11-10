@@ -17,6 +17,14 @@ public class EventServiceImpl implements EventService {
 	@Autowired
 	private EventDao eventDao;
 
+	public EventDao getEventDao() {
+		return eventDao;
+	}
+
+	public void setEventDao(EventDao eventDao) {
+		this.eventDao = eventDao;
+	}
+
 	@Override
 	public List<Event> getAllEvents() {
 		return eventDao.getAllEvents();
@@ -35,7 +43,7 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public Event addEvent(Event event) {
-		if (event == null || event.getEventStartTime() == null || event.getEventEndTime() == null)
+		if (event == null /*|| event.getEventStartTime() == null || event.getEventEndTime() == null*/)
 			throw new InvalidInputException("Please provide valid event data");
 		return eventDao.addEvent(event);
 

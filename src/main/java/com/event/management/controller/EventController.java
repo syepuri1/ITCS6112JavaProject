@@ -35,7 +35,7 @@ public class EventController {
 	}
 
 	@GetMapping("/{eventId}")
-	@ApiOperation(value = "Get Event By Id")
+	@ApiOperation(value = "Get Event By Id", response = Event.class)
 	public Event getEventById(@PathParam("eventId") int eventId) {
 		return eventService.getEventById(eventId);
 	}

@@ -24,8 +24,8 @@ public class Category {
 	private String categoryName;
 	
 	
-	@JsonIgnore
+	/*@JsonIgnore
 	@OneToOne(mappedBy = "category", cascade = CascadeType.REMOVE)
-	private Event event;
+	private Event event;*/
 	
 }
